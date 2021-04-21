@@ -1,7 +1,7 @@
 $(function(){
   $('.slidesInfo').slick({
-    slidesToShow:11,
-    slidesToScroll:4,
+    slidesToShow:10,
+    slidesToScroll:2,
     dots:false,
     infinite:false,
     speed:200,
@@ -75,12 +75,17 @@ $(function(){
     }
     else {
       $('.slidesInfo').on('afterChange', function(event, slick, direction){
+        console.log(direction)
           if(direction==4){
             $('#prev').css('display','none')
             $('#next').css('display','block')
-          }else{
+          }else if(direction ==0){
             $('#prev').css('display','block')
             $('#next').css('display','none')
+          }
+          else {
+            $('#prev').css('display','block')
+            $('#next').css('display','block')
           }
       });
     }
