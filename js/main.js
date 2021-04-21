@@ -15,6 +15,7 @@ temp.addEventListener('click', () =>  {
     temp_2.focus();
 });
 let condition = 0
+let condition2 = 0
 function responsiveMenu(){
     if(condition == 0) {
         document.getElementById('menu1').style.left = "-240px";
@@ -23,11 +24,19 @@ function responsiveMenu(){
         condition = 1
     }
     else {
-        document.getElementById('menu1').style.left = "0";
+        document.getElementById('menu1').style.left = "0";  
         document.getElementById('res-top').style.left = "0px";
         document.getElementById('bg').style.opacity = "0.3";
         document.getElementById('bg').style.display = "block";
         condition = 0
+    }
+    if(condition2 ==0) {
+        document.getElementById('slides-content').style.left = "72px";
+        condition2 = 1
+    }
+    else if(condition2 == 1) {
+        document.getElementById('slides-content').style.left = "240px";
+        condition2 = 0
     }
 }
 function responsiveMenu2() {
@@ -63,6 +72,21 @@ function bg() {
     }
 }
 
+
+
+let resMedeia2 = window.matchMedia("(max-width: 807px)")
+resHeaderContents2(resMedeia2)
+resMedeia2.addListener(resHeaderContents2)
+function resHeaderContents2(x){
+    if(x.matches){
+        document.getElementById('menu2').style.display = "none";
+        document.getElementById('slides-content').style.left = "0";
+    }
+    else{
+        document.getElementById('menu2').style.display = "block";
+        document.getElementById('slides-content').style.left = "72px";
+    }
+}
 let resMedeia1 = window.matchMedia("(max-width: 1330px)")
 resHeaderContents1(resMedeia1)
 resMedeia1.addListener(resHeaderContents1)
@@ -73,28 +97,21 @@ function resHeaderContents1(x){
         document.getElementById('menu1').style.transition = "left .2s linear";
         document.getElementById('res-top').style.display = "block";
         document.getElementById('res-top').style.left = "-240px";
+        document.getElementById('slides-content').style.left = "72px";
         condition = 1
-    }else{
+        condition2 = 10
+    }
+    else {
         document.body.style.background = "blue"
         document.getElementById('menu1').style.left = "0";
         document.getElementById('menu1').style.transition = "none";
         document.getElementById('res-top').style.display = "none";
         document.getElementById('bg').style.display = "none !important";
-        condition = 0
+        document.getElementById('slides-content').style.left = "240px";
+        condition = 0;
+        condition2 = 0;
     }
 }
-
-let resMedeia2 = window.matchMedia("(max-width: 807px)")
-resHeaderContents2(resMedeia2)
-resMedeia2.addListener(resHeaderContents2)
-function resHeaderContents2(x){
-    if(x.matches){
-        document.getElementById('menu2').style.display = "none";
-    }else{
-        document.getElementById('menu2').style.display = "block";
-    }
-}
-
 
 
 

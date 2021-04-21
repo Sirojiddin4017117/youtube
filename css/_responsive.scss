@@ -11,6 +11,11 @@
         }
     }
 }
+@media (max-width: 807px) {
+    #slides-content {
+        left: 0 !important;
+    }
+}
 @media (min-width : 1330px ) {
     .bg {
         display: none  !important;
